@@ -42,11 +42,17 @@ INSTALLED_APPS = [
     'corsheaders',#-
     'rest_framework.authtoken',#-
     'dj_rest_auth',#-
+    'allauth',#-
+    'allauth.account',#-
+    'allauth.socialaccount',#-
+    'dj_rest_auth.registration',#-
 
     'posts.apps.PostsConfig',  # -
 
 
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # -
+SITE_ID = 1 #-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +60,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',#-
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'allauth.account.middleware.AccountMiddleware',#-
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
